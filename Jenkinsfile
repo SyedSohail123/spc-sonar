@@ -8,7 +8,7 @@ pipeline {
     stages {
         stage('VCS') {
             steps {
-                git url: 'https://github.com/SyedSohail123/spc-sonar.git'
+                git url: 'https://github.com/SyedSohail123/spc-sonar.git',
                     branch: 'declarative'
             }
         }
