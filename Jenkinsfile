@@ -15,7 +15,7 @@ pipeline {
         stage('Build & SonarQube Scan') {
             steps {
               withSonarQubeEnv('SONAR_CLOUD') {
-                    sh 'mvn clean install sonar:sonar -Dsonar.organisation=qtdevopssohail123 -Dsonar.token=8c15adacf466a5ccd721f4f7cdb2c4bf17df84ab -Dsonar.projectKey=qtdevopssohail123'  
+                    sh 'mvn clean install sonar:sonar -Dsonar.organization=qtdevopssohail123 -Dsonar.token=8c15adacf466a5ccd721f4f7cdb2c4bf17df84ab -Dsonar.projectKey=qtdevopssohail123'  
                }
             }
         }
