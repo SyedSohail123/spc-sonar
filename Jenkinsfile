@@ -13,13 +13,18 @@ pipeline {
             }
         }
         stage('Build & SonarQube Scan') {
-            withSonarQubeEnv('My SonarQube Server') {
-                    sh 'mvn clean install sonar:sonar -Dsonar.organisation=qtdevopssohail123 -Dsonar.projectKey=qtdevopssohail123_springpet-clininic'
+            steps {
+              withSonarQubeEnv('My SonarQube Server') {
+                    sh 'mvn clean install sonar:sonar -Dsonar.organisation=qtdevopssohail123 -Dsonar.projectKey=qtdevopssohail123_springpet-clininic'  
+            }
         }
         stage('Archiving the artifacts & publishing test results') {
-            archiveArtifacts onlyIfSuccessful: true,
+            steps {
+                archiveArtifacts onlyIfSuccessful: true,
                             artifacts: '**/target/spring-*.jar'
-            junit testResults: '**/surefire-reports/TEST-*.xml'          
+                junit testResults: '**/surefire-reports/TEST-*.xml' 
+            }
+                   
 
         } 
         }
