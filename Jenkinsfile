@@ -15,7 +15,7 @@ pipeline {
         stage('Build & SonarQube Scan') {
             steps {
               withSonarQubeEnv('SONAR_CLOUD') {
-                    sh 'mvn clean install sonar:sonar -Dsonar.organisation=qtdevopssohail123 -Dsonar.projectKey=qtdevopssohail123_springpet-clininic'  
+                    sh 'mvn clean install sonar:sonar -Dsonar.organisation=qtdevopssohail123 -Dsonar.token=8c15adacf466a5ccd721f4f7cdb2c4bf17df84ab -Dsonar.projectKey=qtdevopssohail123'  
                }
             }
         }
