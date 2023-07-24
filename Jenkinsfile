@@ -16,6 +16,7 @@ pipeline {
             steps {
               withSonarQubeEnv('My SonarQube Server') {
                     sh 'mvn clean install sonar:sonar -Dsonar.organisation=qtdevopssohail123 -Dsonar.projectKey=qtdevopssohail123_springpet-clininic'  
+               }
             }
         }
         stage('Archiving the artifacts & publishing test results') {
@@ -24,9 +25,6 @@ pipeline {
                             artifacts: '**/target/spring-*.jar'
                 junit testResults: '**/surefire-reports/TEST-*.xml' 
             }
-                   
-
-        } 
         }
     }
 }
